@@ -24,8 +24,6 @@ export class RegionService {
   }
 
   createRegion(region: Region){
-    console.log("sirves?")
-    console.log(this.http.post(this.apiURI + this.resource, region));
     return this.http.post(this.apiURI + this.resource, region);
   }
 

@@ -5,11 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
+
 import { LayoutModule } from './modules/layout/layout.module';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ExchangeRateModule } from './modules/exchange-rate/exchange-rate.module';
 import { CustomerModule } from './modules/customer/customer.module';
-import { HomeModule } from './modules/home/home.module';
+import { ProductModule } from './modules/product/product.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -17,12 +19,12 @@ import { HomeModule } from './modules/home/home.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    LayoutModule,
     HttpClientModule,
-    NgbModule,
+    LayoutModule,
     ExchangeRateModule,
     CustomerModule,
-    HomeModule    
+    ProductModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

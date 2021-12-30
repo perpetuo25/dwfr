@@ -6,7 +6,7 @@ import { FormBuilder, Validators} from '@angular/forms';
 @Component({
   selector: 'app-exchange-rate',
   templateUrl: './exchange-rate.component.html',
-  styleUrls: ['./exchange-rate.component.scss']
+  styleUrls: ['./exchange-rate.component.css']
 })
 export class ExchangeRateComponent implements OnInit {
 
