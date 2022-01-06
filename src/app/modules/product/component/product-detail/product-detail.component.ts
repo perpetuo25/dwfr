@@ -32,6 +32,7 @@ export class ProductDetailComponent implements OnInit {
 
   // Imagenes del producto
   images: ProductImage[] = [];
+  imageFront : ProductImage = new ProductImage;
   image: ProductImage = new ProductImage();
   file: any;
   imageChangedEvent: any;
@@ -204,7 +205,9 @@ export class ProductDetailComponent implements OnInit {
     this.product_image_service.getProductImages(id_product).subscribe(
       res => {
         this.images = res;
+        this.imageFront = res[0];
         console.log(this.images);
+        console.log(this.imageFront);
       },
       err => console.log(err)
     )
