@@ -7,6 +7,7 @@ import { ProductImageService } from '../../_service/product-image.service';
 import { CategoryService } from '../../_service/category.service';
 import { FormBuilder, Validators} from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { Cart } from '../../../../shared/cart'
 import { Router } from '@angular/router';
 
 import {CroppedEvent} from 'ngx-photo-editor';
@@ -15,12 +16,35 @@ declare var $: any;
 
 import Swal from 'sweetalert2';
 
+
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',
   styleUrls: ['./product-detail.component.css']
 })
 export class ProductDetailComponent implements OnInit {
+
+  selectedOption: number = 0;
+  options = [{
+    name: "0",
+    value: 0
+ },{
+    name: "1",
+    value: 1
+ },
+ {
+    name: "2",
+    value: 2
+ },
+ {
+  name: "3",
+  value: 3
+},
+{
+  name: "4",
+  value: 4
+}
+]
 
   // Datos del producto
   product: Product = new Product();
@@ -71,6 +95,35 @@ export class ProductDetailComponent implements OnInit {
     this.gtin = this.route.snapshot.paramMap.get('gtin');
     this.getProduct(this.gtin);
   }
+
+//Add product to cart
+addToCart(){
+  Cart.cart.push(this.product);
+  console.log(Cart.cart);
+}
+//Add multiple instances of actual product to cart
+addMultipleToCart(quantity: number){
+  let counter = this.numberItems();
+  while(counter > 0){
+    for(let p of Cart.cart){
+      if (p.gtin == this.product.gtin) Cart.cart.splice(Cart.cart.indexOf(p),1);
+      counter = this.numberItems();
+      }
+  }
+  while(quantity > 0){
+    this.addToCart();
+    quantity = quantity - 1;
+  }      
+}
+//Count the number of items of actual products in the cart
+numberItems(){
+  let counter = 0;
+  for(let p of Cart.cart){
+    if (p.id_product == this.product.id_product) counter = counter+1; 
+  }
+  console.log(counter);
+  return counter;
+}
 
   // Read y Update de Producto --------------------------------------------------
 
