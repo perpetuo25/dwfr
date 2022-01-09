@@ -19,7 +19,6 @@ import Swal from 'sweetalert2';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {  
-  cart: Product[] = [];
   // Datos del producto
   products: Product[] = [];
   product1: Product = new Product();
@@ -66,12 +65,12 @@ export class ProductComponent implements OnInit {
     this.getProducts();
 
   }
-
+//Add products to cart
   addToCart(product: Product){
     Cart.cart.push	(product);
     console.log(Cart.cart);
   }
-
+  
   get1Product(id: number){
     for(let prod of this.products2){
       if(prod.id_product == id){

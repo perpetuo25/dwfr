@@ -50,6 +50,28 @@
         </div>
       </div>
     </div>
+    <div class="col-3">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">
+            Entrega: <span>2 a 3 días hábiles a todo México</span>
+          </h4>
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <select [(ngModel)]="selectedOption">
+                  <option *ngFor="let o of options">
+                    {{o.name}}
+                  </option>
+              </select>
+              <button class="btn btn-success"(click)="addMultipleToCart(selectedOption)">Agregar Al carrito</button>               
+              <p>Selected option: {{ selectedOption }}</p>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    </div>
   </div>
 </div>
 

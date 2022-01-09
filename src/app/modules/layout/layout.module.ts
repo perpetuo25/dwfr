@@ -10,6 +10,7 @@ import { CategoryComponent } from '../product/component/category/category.compon
 import { CustomerComponent } from '../customer/component/customer/customer.component';
 import { CustomerDetailComponent } from '../customer/component/customer-detail/customer-detail.component';
 import { ProductComponent } from '../product/component/product/product.component';
+import { CartComponent } from '../cart/cart/component/cart/cart.component';
 import { ProductDetailComponent } from '../product/component/product-detail/product-detail.component';
 
 const routes: Routes = [
@@ -19,7 +20,8 @@ const routes: Routes = [
   {path: 'customer', component: CustomerComponent},
   {path: 'customer-detail/:rfc', component: CustomerDetailComponent},
   {path: 'product', component: ProductComponent},
-  {path: 'product-detail/:gtin', component: ProductDetailComponent}
+  {path: 'product-detail/:gtin', component: ProductDetailComponent},
+  {path: 'cart', component: CartComponent}
 ];
 
 @NgModule({
