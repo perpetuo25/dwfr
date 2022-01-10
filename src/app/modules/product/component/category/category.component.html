@@ -22,18 +22,42 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let category of categories">
-                        <td class="text-center">{{ category.category }}</td>
-                        <td>
-                            <button (click)="updateCategory(category)"  type="button" class="btn btn-primary btn-sm">
-                                Actualizar 
-                                <i class="fas fa-edit"></i>
-                            </button>
-                            &nbsp;&nbsp;
-                            <button (click)="deleteCategory(category.id_category)"  type="button" class="btn btn-danger btn-sm">
-                                Eliminar 
-                                <i class="fas fa-trash"></i>
-                            </button>
-                        </td>
+                        <h5>{{category.category}}</h5>
+                        <div class="container">
+                            <div class="row">
+                                <div *ngFor= "let prod of getProductsByCategory(category.id_category)"class="col-3">
+                                    <div class="card">
+                                        <div class="card-body text-center">
+                                            <h4 class="card-title">
+                                                {{ prod.product }}                  
+                                            </h4>
+                                            <h5>
+                                                ${{prod.price}}
+                                            </h5>
+                                            <div class="container">
+                                                <div class="card">
+                                                <div class="card-body">
+                                                    {{prod.description}}                                            
+                                                </div>
+                                                </div>                 
+                                            </div>
+                                            <div class="card">
+                                                <div class="card-body d-flex justify-content-center">                    
+                                                <button (click)="productDetail(prod.gtin)" type="button" class="btn btn-secondary btn-sm">
+                                                    Ver Detalle
+                                                    <i class="fas fa-gift"></i>
+                                                </button>
+                                                <button (click)="get1Product(prod.id_product)" type="button" class="btn btn-secondary btn-sm">
+                                                    agregar
+                                                    <i class="fas fa-gift"></i>
+                                                </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>                                   
+                                </div>
+                            </div>
+                        </div>
                     </tr>
                 </tbody>
             </table>

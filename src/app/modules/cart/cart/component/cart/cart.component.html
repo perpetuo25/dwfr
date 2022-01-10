@@ -1,9 +1,22 @@
 <div class="container-fluid">
     <div class="row">
+        <div *ngIf = "cartCount() == 0"class="col-12">
+            <h4 class = "text-center">Tu carrito está vacio</h4>
+        </div>
         <div *ngFor="let product of getCart()" class="col-12">
-            <h1>
-                {{product.product}}
-            </h1>
+            <div class="container">
+                <div class="row">
+                    <div class="col-4">{{product.product}}</div>
+                    <div class="col-4">${{product.price}}</div>
+                    <div class="col-4"></div>
+                </div>
+            </div>            
+        </div>
+        <div class="d-flex justify-content-end">
+            <h5>Subtotal: $ {{getTotalPrice()}}</h5>            
+        </div>
+        <div class="d-flex justify-content-end">
+            <h4>Total: $ {{getTaxes()}}</h4>
         </div>
     </div>
 </div>
