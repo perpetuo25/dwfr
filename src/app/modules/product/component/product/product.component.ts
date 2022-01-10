@@ -143,7 +143,14 @@ export class ProductComponent implements OnInit {
     )
   }
 
+getImage(id: number){
+  let path = "";
+  for(let img of this.images){
+    if(img.id_product == id) path = img.image;  
+  }
+  return path;
 
+}
 
   onSubmit(){
     this.submitted = true;
