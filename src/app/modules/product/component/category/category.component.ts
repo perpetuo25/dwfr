@@ -1,11 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Category } from '../../_model/category';
 import { CategoryService } from '../../_service/category.service';
+import { ProductService } from '../../_service/product.service';
+import { Cart } from '../../../../shared/cart';
 import { FormBuilder, Validators} from '@angular/forms';
+import { Router } from '@angular/router';
+
 
 declare var $: any;
 
 import Swal from 'sweetalert2';
+import { Product } from '../../_model/product';
 
 @Component({
   selector: 'app-category',
@@ -16,6 +21,9 @@ export class CategoryComponent implements OnInit {
 
   categories: Category[] = [];
   category: Category = new Category();
+  products: Product[] = [];
+  product1: Product = new Product();
+  products2: Product[] = [];
   formulario = this.formBuilder.group({
     id_category: [''],
     category: ['', Validators.required]
@@ -25,17 +33,68 @@ export class CategoryComponent implements OnInit {
 
   constructor(
     private category_service: CategoryService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router: Router, 
+    private product_service: ProductService,
   ) { }
 
   ngOnInit(): void {
     this.getCategories();
+    this.getProducts();
+  }
+
+  //Add products to cart
+  addToCart(product: Product){
+    Cart.cart.push	(product);
+    console.log(Cart.cart);
+  }
+  
+  get1Product(id: number){
+    for(let prod of this.products2){
+      if(prod.id_product == id){
+        this.addToCart(prod);
+      }
+    }
   }
 
   getCategories(){
     this.category_service.getCategories().subscribe(
       res => {
-        this.categories = res;
+        this.categories = res;    
+      },
+      err => console.log(err)
+    )
+  }
+
+  getProductsByCategory(idCat: number){
+    let result: Product[] = [];
+    for (let prod of this.products2){
+      if (prod.id_category == idCat) result.push(prod);      
+    }
+    return result;
+  }
+
+  getProducts(){
+    this.product_service.getProducts().subscribe(
+      res => {
+        this.products = res;        
+        for(let p of this.products){
+          this.getProduct(p.gtin);                      
+        }                                                     
+      },
+      err => console.log(err)
+    )
+    
+  }
+
+  getProduct(gtin: string){
+    this.product_service.getProduct(gtin).subscribe(
+      res => {
+        this.product1 = res;        
+        this.getCategory(this.product1.id_category);                
+        let temp = res;
+        this.products2.push(temp);
+        console.log(this.products2);          
       },
       err => console.log(err)
     )
@@ -45,10 +104,12 @@ export class CategoryComponent implements OnInit {
     this.category_service.getCategory(id_category).subscribe(
       res => {
         this.category = res;
+        
       },
       err => console.log(err)
     )
   }
+
 
   onSubmit(){
     this.submitted = true;
@@ -153,6 +214,10 @@ export class CategoryComponent implements OnInit {
   closeModal(){
     $("#category_modal").modal("hide");
     this.submitted = false;
+  }
+
+  productDetail(gtin: string){
+    this.router.navigate(['product-detail/'+gtin]);
   }
 
 }

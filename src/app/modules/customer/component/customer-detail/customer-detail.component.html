@@ -180,12 +180,12 @@
           </button>
         </div>
 
-        <!--div class="modal-body">
+        <div class="modal-body">
                 <label for="image">Imagen<span class="text-danger">*</span></label>
                     <div class="custom-file form-group">
                         <input type="file" accept="image/*" class="custom-file-input" (change)=fileChangeEvent($event)>
                         <ngx-photo-editor
-                            [imageChanedEvent]="imageChangedEvent"
+                            [imageChangedEvent]="imageChangedEvent"
                             (imageCropped)="imageCropped($event)"
                             [aspectRatio]="5/6"
                             [viewMode]="0"
@@ -197,7 +197,7 @@
                     <br>
                     <button (click)="onSubmitImage()" type="button" class="btn btn-success btn-block">Actualizar</button>
                 </div>
-        </-div-->
+        </div>
 
         <div class="modal-footer">
           <button (click)="closeImageModal()" type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
