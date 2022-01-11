@@ -22,7 +22,7 @@ const routes: Routes = [
   {path: 'customer-detail/:rfc', component: CustomerDetailComponent},
   {path: 'product', component: ProductComponent},
   {path: 'product-detail/:gtin', component: ProductDetailComponent},
-  {path: 'invoice', component: InvoiceComponent}
+  {path: 'invoice', component: InvoiceComponent},
   {path: 'cart', component: CartComponent}
 ];
 

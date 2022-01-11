@@ -12,6 +12,8 @@ import { CustomerModule } from './modules/customer/customer.module';
 import { ProductModule } from './modules/product/product.module';
 import {CartModule} from './modules/cart/cart/cart.module'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { InvoiceModule } from './modules/invoice/invoice.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CustomerModule,
     ProductModule,
     CartModule,
-    NgbModule
+    NgbModule,
+    FormsModule,
+    ReactiveFormsModule,
+    InvoiceModule
   ],
   providers: [],
   bootstrap: [AppComponent]
