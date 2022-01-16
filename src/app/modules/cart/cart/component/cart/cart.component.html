@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div class="row">
-        <div *ngIf = "cartCount() == 0"class="col-12">
+        <div *ngIf = "cartCount() == 0"class="col-12" data-aos="zoom-in">
             <h4 class = "text-center">Tu carrito está vacio</h4>
         </div>
 
@@ -14,7 +14,7 @@
                 </div>
             </div>            
         </div>
-        <div class="d-flex justify-content-end">
+        <div class="d-flex justify-content-end" data-aos="zoom-in">
             <h5>Subtotal: $ {{getTotalPrice()}}</h5>            
         </div>
         <div class="d-flex justify-content-end">
@@ -22,7 +22,7 @@
         </div>
     </div>
 </div>
-<div *ngIf = "cartCount() == 0"class="col-12">
+<div *ngIf = "cartCount() == 0"class="col-12" data-aos="zoom-in">
   <button (click)="createInvoice()" style="float: right" type="button" class="btn btn-success btn-sm">
     Realizar Compra
     <i class="fa fa-shopping-cart"></i>
@@ -79,17 +79,19 @@
                   <input type="text" id="nameCard" name="nameCard">
                 </div>
               </div>                           
-            </div>                      
-            <table class='half-input-table'>
-              <tr>
-                <td> Fecha de expiración
-                  <input class='input-field'>
-                </td>
-                <td>CVC
-                  <input class='input-field'>
-                </td>
-              </tr>
-            </table>
+            </div>
+            <div class="form-group container">
+              <table class='half-input-table'>
+                <tr>
+                  <td> Fecha de expiración
+                    <input class='input-field'>
+                  </td>
+                  <td>CVC
+                    <input class='input-field'>
+                  </td>
+                </tr>
+              </table>
+            </div>                                  
           </form> 
           <div class="d-flex justify-content-center mt-5">
             <button (click)="createInvoicePost()" type="button" class="btn btn-success" data-dismiss="modal" aria-label="Close">Confirmar Compra</button>             
