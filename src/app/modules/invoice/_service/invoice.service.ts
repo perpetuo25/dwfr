@@ -19,7 +19,7 @@ export class InvoiceService {
     return this.http.get<Factura[]>(this.apiURI + this.resource+"/"+rfc);
   }
 
-  createInvoice(rfc: String, invoice: Factura){
-    return this.http.post(this.apiURI +this.resource+"/"+rfc, invoice);
+  createInvoice(rfc: String, total: number){
+    return this.http.post(this.apiURI +this.resource+"/"+rfc,total);
   }
 }
