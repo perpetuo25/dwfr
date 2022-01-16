@@ -1,17 +1,20 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand d-flex" data-aos="zoom-in-down" routerLink="/">
+    <img class="img-logo" src="../../../../../assets/logo-corgi.png" alt="">
+    <h5 class="mt-3">El Corgi Abarrotero</h5>
+  </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto" id="navbarDWF">
-        <li class="nav-item active">
+        <!--li class="nav-item active">
           <a class="nav-link" routerLink="/customer"><i class="fas fa-user-tag"></i>&nbsp;&nbsp;Clientes</a>
-        </li>
-        <li class="nav-item">
+        </!--li>
+        <li-- class="nav-item">
           <a class="nav-link" routerLink="/region">Regiones</a>
-        </li>
-        <li class="nav-link">|</li>
+        </li-->       
         <li class="nav-item active">
           <a class="nav-link" routerLink="/product"><i class="fas fa-gifts"></i>&nbsp;&nbsp;Productos</a>
         </li>
@@ -23,7 +26,7 @@
           <a class="nav-link" routerLink="/invoice"><i class="fas fa-file-invoice-dollar"></i>&nbsp;&nbsp;Facturas</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/cart">Carrito: {{updateCart()}}</a>
+          <a class="nav-link" routerLink="/cart"><i class="fa fa-shopping-cart"></i>&nbsp;&nbsp;Carrito: {{updateCart()}}</a>
         </li>
       </ul>
     </div>
