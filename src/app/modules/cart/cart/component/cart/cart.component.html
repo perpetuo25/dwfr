@@ -40,61 +40,68 @@
         </div>
         <div class="modal-body"> 
           <form action="">
-            <div class="form-group container">
+            <div class="container">
               <div class="row">
-                <div class="col-5">
+                <div class="col-12 d-flex justify-content-center">
+                  <img class="img-cart" src="../../../../../../assets/corona.png" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="form-group container field-form">
+              <div class="row ">
+                <div class="col-5 label-2">
                   <label for="rate">RFC <span class="text-danger">*</span></label> 
                 </div>
                 <div class="col-7">
-                  <input type="text" id="rfc" name="name">
+                  <input type="text" id="rfc" name="name" class="w-100" required> 
                 </div>
               </div>                       
             </div>            
-            <div class="form-group container">
-              <div class="row">
-                <div class="col-5">
+            <div class="form-group container field-form">
+              <div class="row ">
+                <div class="col-5 label-2">
                   <label for="rate">Dirección <span class="text-danger">*</span></label> 
                 </div>
                 <div class="col-7">
-                  <input type="text" id="direccion" name="direccion">
+                  <input type="text" id="direccion" name="direccion"  class="w-100" required>
                 </div>
               </div>                           
             </div>
-            <div class="form-group container">
-              <div class="row">
-                <div class="col-5">
+            <div class="form-group container field-form">
+              <div class="row ">
+                <div class="col-5 label-2">
                   <label for="rate">Número de tarjeta <span class="text-danger">*</span></label> 
                 </div>
                 <div class="col-7">
-                  <input type="text" id="tarjeta" name="tarjeta">
+                  <input type="text" id="tarjeta" name="tarjeta" class="w-100" required>
                 </div>
               </div>                            
             </div>
-            <div class="form-group container">
+            <div class="form-group container field-form">
               <div class="row">
-                <div class="col-5">
+                <div class="col-5 label-2">
                   <label for="rate">Nombre de la tarjeta <span class="text-danger">*</span></label> 
                 </div>
                 <div class="col-7">
-                  <input type="text" id="nameCard" name="nameCard">
+                  <input type="text" id="nameCard" name="nameCard" class="w-100" required>
                 </div>
               </div>                           
             </div>
-            <div class="form-group container">
-              <table class='half-input-table'>
-                <tr>
-                  <td> Fecha de expiración
-                    <input class='input-field'>
-                  </td>
-                  <td>CVC
-                    <input class='input-field'>
-                  </td>
-                </tr>
-              </table>
-            </div>                                  
+            <div class="form-group container field-form">
+              <div class="row">
+                <div class="col-5 label-2"><label for="rate">Fecha de Expiración <span class="text-danger">*</span></label> </div>
+                <div class="col-7"> <input type="text" id="fecha" name="nameCard" class="w-100" required></div>
+              </div>
+            </div>
+            <div class="form-group container field-form">
+              <div class="row">
+                <div class="col-5 label-2"><label for="rate">CVV<span class="text-danger">*</span></label> </div>
+                <div class="col-7"> <input type="text" id="cvv" name="nameCard" class="w-100" required></div>
+              </div>
+            </div>                                          
           </form> 
           <div class="d-flex justify-content-center mt-5">
-            <button (click)="createInvoicePost()" type="button" class="btn btn-success" data-dismiss="modal" aria-label="Close">Confirmar Compra</button>             
+            <input (click)="createInvoicePost()" type="submit" class="btn btn-success" data-dismiss="modal" aria-label="Close">             
           </div>         
         </div>
 
