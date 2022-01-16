@@ -56,6 +56,27 @@ export class CartComponent implements OnInit {
     this.totalWithTaxes = taxes;
     return taxes;
   }
+
+  fieldEmpty(){
+    if((<HTMLInputElement>document.getElementById("rfc")).value == "")  return true;
+    if((<HTMLInputElement>document.getElementById("direccion")).value == "")  return true;
+    if((<HTMLInputElement>document.getElementById("tarjeta")).value == "")  return true;
+    if((<HTMLInputElement>document.getElementById("nameCard")).value == "")  return true;
+    if((<HTMLInputElement>document.getElementById("fecha")).value == "")  return true;
+    if((<HTMLInputElement>document.getElementById("cvv")).value == "")  return true;
+    return false; 
+  }
+
+  rfcIsValid(){
+    if((<HTMLInputElement>document.getElementById("rfc")).value.length<13)  return false;
+    return true;
+  }
+
+  cardIsValid(){
+    if((<HTMLInputElement>document.getElementById("direccion")).value.length < 16)  return false;
+    return true;
+  }
+
   createInvoicePost(){
     this.invoice.rfc= (<HTMLInputElement>document.getElementById("rfc")).value;
     this.RFCglobal = (<HTMLInputElement>document.getElementById("rfc")).value;
@@ -63,24 +84,34 @@ export class CartComponent implements OnInit {
     this.invoice.total= this.getTaxes(); 
     this.invoice.taxes = this.invoice.total - this.invoice.subtotal;
     this.invoice.articles = Cart.cart;   
-    console.log(this.invoice)
-    if (Cart.invoices.length == 0){
-      this.invoice.id_invoice = 0;
-      Cart.invoices.push(this.invoice);
-    }
-    else{
-      this.invoice.id_invoice = Cart.invoices.length;
-      Cart.invoices.push(this.invoice);
-    }
-    Swal.fire({
-      position: 'top-end',
-      icon: 'success',
-      title: 'Registro exitoso!',
-      showConfirmButton: false,
-      timer: 1500
-    })
-    console.log(Cart.invoices);
-    Cart.cart = [];
+    console.log(this.invoice)    
+    if (this.fieldEmpty() == false){
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Registro exitoso!',
+        showConfirmButton: false,
+        timer: 1500
+      })
+      if (Cart.invoices.length == 0){
+        this.invoice.id_invoice = 0;
+        Cart.invoices.push(this.invoice);
+      }
+      else{
+        this.invoice.id_invoice = Cart.invoices.length;
+        Cart.invoices.push(this.invoice);
+      }
+      Cart.cart = [];
+    }else{
+      Swal.fire({
+        position: 'top-end',
+        icon: 'error',
+        title: 'Hay campos vacios!',
+        showConfirmButton: false,
+        timer: 1500
+      })
+    }     
+    console.log(Cart.invoices);   
   }
   onSubmit(){
     this.submitted = true;
