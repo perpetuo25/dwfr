@@ -45,8 +45,8 @@ export class CartComponent implements OnInit {
       total = total + prod.price;
     }
     this.total = total;   
-    console.log(this.total);
-    console.log(this.totalWithTaxes);
+    //console.log(this.total);
+    //console.log(this.totalWithTaxes);
     return total;
   }
 
@@ -61,7 +61,8 @@ export class CartComponent implements OnInit {
     this.RFCglobal = (<HTMLInputElement>document.getElementById("rfc")).value;
     this.invoice.subtotal = this.getTotalPrice();
     this.invoice.total= this.getTaxes(); 
-    this.invoice.taxes = this.invoice.total - this.invoice.subtotal;   
+    this.invoice.taxes = this.invoice.total - this.invoice.subtotal;
+    this.invoice.articles = Cart.cart;   
     console.log(this.invoice)
     if (Cart.invoices.length == 0){
       this.invoice.id_invoice = 0;

@@ -12,4 +12,5 @@ export class InvoiceDetailComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  
 }
