@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ApisURI } from '../../../shared/apis-uri';
 import { Factura } from '../_model/invoice';
+import { Cart } from '../../../shared/cart';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,10 @@ export class InvoiceService {
 
   getInvoices(rfc: String){
     return this.http.get<Factura[]>(this.apiURI + this.resource+"/"+rfc);
+  }
+
+  getInvoice(rfc: String){
+    return Cart.invoices;
   }
 
   createInvoice(rfc: String, total: number){

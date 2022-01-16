@@ -35,7 +35,12 @@ export class InvoiceComponent implements OnInit {
 
   ngSubmit(){
     var rate = this.formulario.controls['rate'].value;
-    this.getInvoices(rate);
+    //this.getInvoices(rate);
+    this.getInvoice(rate);
+  }
+
+  getInvoice(rfc: string){
+    this.invoices = this.invoice_service.getInvoice(rfc)
   }
 
   getInvoices(rfc: String){
