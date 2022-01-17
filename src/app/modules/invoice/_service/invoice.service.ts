@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { ApisURI } from '../../../shared/apis-uri';
 import { Factura } from '../_model/invoice';
 import { Cart } from '../../../shared/cart';
+import { Product } from '../../product/_model/product';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,24 @@ export class InvoiceService {
   }
 
   getInvoice(rfc: String){
-    return Cart.invoices;
+    var fac: Factura[] = []
+    for(let factura of Cart.invoices){
+      if(factura.rfc == rfc){
+        fac.push(factura);
+      }
+    }
+    return fac;
+  }
+
+  getFactura(id_invoice: number){
+    var fas: Factura = new Factura();
+    for(let factura of Cart.invoices){
+      if(factura.id_invoice == id_invoice){
+        return factura;
+      }
+    }
+    console.log("Factura no encontrada");
+    return fas;
   }
 
   createInvoice(rfc: String, total: number){

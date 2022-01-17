@@ -34,15 +34,11 @@
                         <td class="text-center">{{ invoice.rfc }}</td>
                         <td class="text-center">{{ invoice.total }}</td>
                         <td>
-                            <!--<button (click)="customerDetail(customer.rfc)" type="button" class="btn btn-secondary btn-sm">
+                            <button (click)="invoiceDetail(invoice.id_invoice)" type="button" class="btn btn-secondary btn-sm">
                                 Ver Detalle
                                 <i class="fas fa-id-card"></i>
-                            </button> -->
-                            <!-- &nbsp;&nbsp;
-                            <button (click)="updateCustomer(customer)"  type="button" class="btn btn-primary btn-sm">
-                                Actualizar 
-                                <i class="fas fa-edit"></i>
-                            </button> -->
+                            </button> 
+                            &nbsp;&nbsp; 
                         </td>
                     </tr>
                 </tbody>

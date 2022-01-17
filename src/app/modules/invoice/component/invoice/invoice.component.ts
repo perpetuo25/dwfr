@@ -53,7 +53,7 @@ export class InvoiceComponent implements OnInit {
     )
   }
 
-  invoiceDetail(rfc: string){
-    this.router.navigate(['invoice-detail/'+rfc]);
+  invoiceDetail(id_invoice: number){
+    this.router.navigate(['invoice-detail/'+id_invoice]);
   }
 }

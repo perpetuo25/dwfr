@@ -13,6 +13,7 @@ import { ProductComponent } from '../product/component/product/product.component
 import { CartComponent } from '../cart/cart/component/cart/cart.component';
 import { ProductDetailComponent } from '../product/component/product-detail/product-detail.component';
 import { InvoiceComponent } from '../invoice/component/invoice/invoice.component';
+import { InvoiceDetailComponent } from '../invoice/component/invoice-detail/invoice-detail.component';
 
 const routes: Routes = [
   {path: 'exchange-rate', component: ExchangeRateComponent},
@@ -23,7 +24,8 @@ const routes: Routes = [
   {path: 'product', component: ProductComponent},
   {path: 'product-detail/:gtin', component: ProductDetailComponent},
   {path: 'invoice', component: InvoiceComponent},
-  {path: 'cart', component: CartComponent}
+  {path: 'cart', component: CartComponent},
+  {path: 'invoice-detail/:id_invoice', component: InvoiceDetailComponent}
 ];
 
 @NgModule({

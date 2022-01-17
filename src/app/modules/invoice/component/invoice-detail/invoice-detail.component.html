@@ -1,1 +1,47 @@
-<p>invoice-detail works!</p>
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title">
+                <span>
+                    Factura: {{invoice.id_invoice}}
+                </span>  
+            </h2>
+            <p>
+                {{invoice.rfc}}
+            </p>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table">
+                <thead class="thead-light">
+                    <tr>
+                        <th class="text-center">Gtin</th>
+                        <th class="text-center">Producto</th>
+                        <th class="text-center">Precio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let article of invoice.articles">
+                        <th class="text-center">{{ article.gtin }}</th>
+                        <th class="text-center">{{ article.product }}</th>
+                        <th class="text-center">{{ article.price }}</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <h2>
+                    Subtotal: {{ invoice.subtotal}}
+                </h2>
+                <h2>
+                    Impuestos: {{ invoice.taxes }}
+                </h2>
+                <h3>
+                    Total: {{ invoice.total }}
+                </h3>
+            </div>
+        </div>
+    </div>
+</div>
